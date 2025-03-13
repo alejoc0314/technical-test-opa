@@ -14,11 +14,17 @@ export class ItemsService {
     this.loadItems();
   }
 
+  /**
+   * Guarda la lista de ítems y la combinación óptima en el almacenamiento local.
+   */
   public saveItems(): void {
     localStorage.setItem('items', JSON.stringify(this.items));
     localStorage.setItem('optimalItems', JSON.stringify(this.optimalItems));
   }
 
+  /**
+   * Carga la lista de ítems y la combinación óptima desde el almacenamiento local.
+   */
   public loadItems(): void {
     const storedItems = localStorage.getItem('items');
     const storedOptimalItems = localStorage.getItem('optimalItems');
@@ -31,6 +37,12 @@ export class ItemsService {
     }
   }
 
+  /**
+   * Calcula la combinación óptima de ítems que cumple con las restricciones de peso y calorías.
+   * La combinación debe tener al menos 15 calorías y no superar los 10 de peso.
+   * Si hay varias combinaciones posibles, selecciona la que tenga el menor peso
+   * o, en caso de empate, la de mayor valor calórico.
+   */
   calculateOptimalItems = (): void => {
     let bestCombination: Item[] = [];
     let bestWeight = Infinity;
@@ -87,6 +99,12 @@ export class ItemsService {
     }
   };
 
+  /**
+   * Elimina un ítem por su ID, ya sea de la lista de todos los ítems
+   * o solo de la lista de combinación óptima.
+   * @param id - ID del ítem a eliminar.
+   * @param fromAllItems - Si es `true`, elimina el ítem de ambas listas.
+   */
   deleteItem(id: number, fromAllItems: boolean): void {
     if (fromAllItems) {
       this.items = this.items.filter((item) => item.id !== id);

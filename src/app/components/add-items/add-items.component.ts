@@ -17,6 +17,10 @@ export class AddItemsComponent {
 
   private readonly itemsService = inject(ItemsService);
 
+  /**
+   * Limpia el valor de entrada para asegurarse de que solo contenga números positivos.
+   * Si el valor no es válido, lo establece en vacío.
+   */
   sanitizeNumberInput(event: any): number | null {
     const value = event.target.value;
 
@@ -34,6 +38,10 @@ export class AddItemsComponent {
     return numValue;
   }
 
+  /**
+   * Agrega un nuevo ítem a la lista de items si los valores ingresados son válidos.
+   * Después de agregar el ítem, guarda los cambios y restablece el formulario.
+   */
   addItem() {
     if (this.name && this.weight! > 0 && this.calories! > 0) {
       const newItem = {
@@ -50,12 +58,19 @@ export class AddItemsComponent {
     }
   }
 
+  /**
+   * Restablece los valores del formulario a su estado inicial.
+   */
   resetForm() {
     this.name = '';
     this.weight = 0;
     this.calories = 0;
   }
 
+  /**
+   * Determina si el botón para agregar ítems debe estar deshabilitado
+   * basado en la validez de los valores ingresados en el formulario.
+   */
   isAddDisabled(): boolean {
     return (
       this.name === '' ||
