@@ -1,0 +1,22 @@
+<div
+  class="flex w-full h-[4.1rem] items-center rounded-lg border-[0.1rem]"
+  [ngClass]="{ 'mb-2': !isLast() }"
+>
+  <div class="w-[90%] flex flex-col">
+    <div class="w-full border-b-[0.1rem] text-center p-1">
+      {{ itemProperties().name }}
+    </div>
+    <div class="w-full flex text-center">
+      <p class="w-1/2 p-1">Peso: {{ itemProperties().weight }}</p>
+      <p class="w-1/2 p-1 border-l-[0.1rem]">
+        Calorías: {{ itemProperties().calories }}
+      </p>
+    </div>
+  </div>
+  <button
+    class="w-[10%] h-full border-l-[0.1rem] hover:bg-red-500/90 transition-colors duration-300 rounded-tr-lg rounded-br-lg"
+    (click)="itemsService.deleteItem(itemProperties().id, isBestCombination())"
+  >
+    <i class="fa-solid fa-trash"></i>
+  </button>
+</div>
