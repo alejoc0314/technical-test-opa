@@ -1,27 +1,27 @@
-# OpaExcursionistsApp
+# Desarrollado como Prueba Técnica
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
+Este proyecto fue creado como parte de una prueba técnica para demostrar habilidades en el desarrollo de aplicaciones web utilizando Angular. La prueba técnica tenía como objetivo evaluar la capacidad del desarrollador para implementar una solución funcional, escalable y bien estructurada, siguiendo las mejores prácticas de desarrollo.
 
-## Development server
+# Detalles Técnicos del Proyecto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**OpaExcursionistsApp** es una aplicación Angular generada con Angular CLI versión 18.0.0. A continuación, se describen los aspectos clave del proyecto:
 
-## Code scaffolding
+## 1. Servidor de Desarrollo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Para iniciar la aplicación en un entorno de desarrollo, se utiliza el comando `ng serve`.
+- La aplicación se ejecuta en `http://localhost:4200/` y se recarga automáticamente cuando se realizan cambios en los archivos fuente.
 
-## Build
+## 2. Generación de Componentes
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular CLI permite generar nuevos componentes, directivas, servicios, clases, interfaces y más utilizando el comando `ng generate`.
+- Por ejemplo, para crear un nuevo componente, se usa `ng generate component nombre-del-componente`.
 
-## Running unit tests
+## 3. Compilación del Proyecto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Para compilar el proyecto, se utiliza el comando `ng build`.
+- Los archivos compilados se almacenan en la carpeta `dist/`, lista para su despliegue en un servidor de producción.
 
-## Running end-to-end tests
+## 4. Pruebas Unitarias
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Las pruebas unitarias se ejecutan con el comando `ng test`.
+- Estas pruebas utilizan Karma como entorno de ejecución para verificar el correcto funcionamiento de los componentes y servicios.
