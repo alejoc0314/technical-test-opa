@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/opa-excursionists-app",
+            "outputPath": "dist/opa-excursionists-app/browser",
             "baseHref": "/technical-test-opa/",
             "index": "src/index.html",
             "browser": "src/main.ts",
