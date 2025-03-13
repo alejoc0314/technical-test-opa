@@ -6,43 +6,10 @@ import Swal from 'sweetalert2';
   providedIn: 'root',
 })
 export class ItemsService {
-  items: Item[] = [
-    {
-      name: 'E1',
-      weight: 5,
-      calories: 3,
-      id: 0,
-    },
-    {
-      name: 'E2',
-      weight: 3,
-      calories: 5,
-      id: 1,
-    },
-    {
-      name: 'E3',
-      weight: 5,
-      calories: 2,
-      id: 2,
-    },
-    {
-      name: 'E4',
-      weight: 1,
-      calories: 8,
-      id: 3,
-    },
-    {
-      name: 'E5',
-      weight: 2,
-      calories: 3,
-      id: 4,
-    },
-  ];
+  items: Item[] = [];
   optimalItems: Item[] = [];
 
   calculateOptimalItems = (): void => {
-    console.log(this.items);
-
     let bestCombination: Item[] = [];
     let bestWeight = Infinity;
     let bestCalories = 0;
@@ -93,22 +60,14 @@ export class ItemsService {
         text: 'No se encontró una combinación que cumpla con las restricciones de peso y calorías.',
         confirmButtonText: 'Entendido',
       });
-    } else {
-      console.log(this.optimalItems);
     }
   };
 
   deleteItem(id: number, fromAllItems: boolean): void {
-    console.log('llegó');
-
     if (fromAllItems) {
-      console.log('llegó2');
-
       this.items = this.items.filter((item) => item.id !== id);
       this.optimalItems = this.optimalItems.filter((item) => item.id !== id);
     } else {
-      console.log('llegó3');
-
       this.optimalItems = this.optimalItems.filter((item) => item.id !== id);
     }
   }
