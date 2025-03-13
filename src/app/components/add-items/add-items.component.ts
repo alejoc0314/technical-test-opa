@@ -34,9 +34,23 @@ export class AddItemsComponent {
     return numValue;
   }
 
-  addItem(name: string, weight: number, calories: number) {
-    const id = this.itemsService.items.length;
-    this.itemsService.items.push({ id, name, weight, calories });
+  addItem() {
+    if (this.name && this.weight! > 0 && this.calories! > 0) {
+      const newItem = {
+        id: this.itemsService.items.length,
+        name: this.name,
+        weight: this.weight!,
+        calories: this.calories!,
+      };
+
+      this.itemsService.items.push(newItem);
+      this.itemsService.saveItems();
+
+      this.resetForm();
+    }
+  }
+
+  resetForm() {
     this.name = '';
     this.weight = 0;
     this.calories = 0;
@@ -44,8 +58,12 @@ export class AddItemsComponent {
 
   isAddDisabled(): boolean {
     return (
-      (this.name === '' && this.weight === 0) ||
-      (this.weight === null && this.calories === 0) ||
+      this.name === '' ||
+      this.name === undefined ||
+      this.name === null ||
+      this.weight === 0 ||
+      this.weight === null ||
+      this.calories === 0 ||
       this.calories === null
     );
   }

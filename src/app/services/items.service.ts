@@ -9,6 +9,28 @@ export class ItemsService {
   items: Item[] = [];
   optimalItems: Item[] = [];
 
+  constructor() {
+    // Cargar datos almacenados al inicializar el servicio
+    this.loadItems();
+  }
+
+  public saveItems(): void {
+    localStorage.setItem('items', JSON.stringify(this.items));
+    localStorage.setItem('optimalItems', JSON.stringify(this.optimalItems));
+  }
+
+  public loadItems(): void {
+    const storedItems = localStorage.getItem('items');
+    const storedOptimalItems = localStorage.getItem('optimalItems');
+
+    if (storedItems) {
+      this.items = JSON.parse(storedItems);
+    }
+    if (storedOptimalItems) {
+      this.optimalItems = JSON.parse(storedOptimalItems);
+    }
+  }
+
   calculateOptimalItems = (): void => {
     let bestCombination: Item[] = [];
     let bestWeight = Infinity;
@@ -53,6 +75,8 @@ export class ItemsService {
 
     this.optimalItems = bestCombination;
 
+    this.saveItems();
+
     if (this.optimalItems.length === 0) {
       Swal.fire({
         icon: 'warning',
@@ -70,5 +94,7 @@ export class ItemsService {
     } else {
       this.optimalItems = this.optimalItems.filter((item) => item.id !== id);
     }
+
+    this.saveItems();
   }
 }

@@ -28,7 +28,8 @@
       />
 
       <button
-        (click)="addItem(name, weight!, calories!)"
+        id="add-item"
+        (click)="addItem()"
         [disabled]="isAddDisabled()"
         [ngClass]="{
           'bg-blue-500 hover:bg-blue-600 cursor-pointer': !isAddDisabled(),

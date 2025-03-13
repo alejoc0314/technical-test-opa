@@ -16,4 +16,8 @@ export class ItemsListComponent {
 
   public itemList = input.required<Item[]>();
   public isCalculated = input.required<boolean>();
+
+  calculateItems() {
+    this.itemsService.calculateOptimalItems();
+  }
 }
